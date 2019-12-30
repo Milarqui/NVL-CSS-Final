@@ -1,0 +1,134 @@
+Memoria Ejercicio Final
+Construcción de página web en HTML+CSS
+
+1. Introducción
+
+El principal objetivo de este módulo de pre-work es el aprendizaje del lenguaje asociado a CSS y cómo se compenetra con el lenguaje HTML en la construcción de páginas web. A lo largo de este módulo, se han propuesto diferentes lecciones en distintos aspectos de CSS y HTML, hasta desembocar en un proyecto final que aúne la combinación de todas las lecciones.
+
+Para este proyecto, se va a crear una página web que muestre un blog formado por varios posts. La página estará dividida en tres columnas: una central que contiene los posts del blog, y dos laterales que contendrán enlaces a los diferentes posts, el de la izquierda a la lista completa y el de la derecha a los que se consideren más importantes o populares.
+
+A lo largo de la presente memoria, se mostrarán los pasos que se han realizado para llegar al producto final, se explicará el motivo de cada una de las elecciones realizadas y se terminará con una conclusión sobre el contenido del ejercicio.
+
+2. Procedimiento
+2.1. Documento HTML
+El procedimiento de creación del documento HTML se ha iniciado con la construcción del esqueleto del documento sobre el que luego se formarán los demás elementos:
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Masco-Time</title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <div class="left">
+    </div>
+    <div class="center">
+    </div>
+    <div class="right">
+    </div>
+    <footer>
+    </footer>
+  </body>
+</html>
+
+Se utiliza esta base porque muestra ya los elementos básicos del documento: el cabecero, el header, las tres columnas y el footer.
+
+Con esta base, se puede entonces formar el documento que se quiere crear.
+
+Se empieza formando el header o cabecero. A fin de mostrar que se trata de un blog, se utiliza una imagen que ha sido empleada en otro blog, además de un título y un subtítulo convenientemente marcados. Al ser lo primero que se verá al abrir la página, se empieza a destacar a los ojos del posible lector.
+
+Después se trabaja en el footer, donde solamente se incluye una línea sobre el creador del blog, aunque podrían incluirse más líneas que se expandan sobre el contenido del texto u otros conceptos similares.
+
+Con los elementos más sencillos ya realizados, se empieza a trabajar en la parte importante del documento, el cuerpo, que está dividido en tres columnas.
+
+Primero se trabaja en la columna central, que contiene los posts del blog.
+
+Con el fin de ahorrar tiempo y esfuerzo, se copian los textos de otro blog ya existente y se incluyen los títulos originales. Estos títulos serán también el destino de los enlaces que luego se construirán.
+
+Con los textos ya escritos, se crean dos listas sin orden en las columnas laterales.
+
+La lista de la columna izquierda contendrá tantos ítemes como posts hay en el blog, cada uno de los ítemes enlazado al post correspondiente en el blog. Esto facilitará la navegación y permitirá al lector desplazarse de inmediato al post deseado sin tener que manipular la ventana.
+
+La lista de la columna derecha contendrá cuatro ítemes que se supondrán son los más populares para los lectores, permitiendo a quienes quieran volver a leerlos acceder rápidamente y a otros poder averiguar las razones del interés de la gente por el blog.
+
+Finalmente, se realizan operaciones de estilo menores dentro del texto, como palabras en negrita y cursiva o un enlace interno a otro post del blog. Esta operación se realiza porque hay elementos que no requieren de grandes modificaciones y deben retocarse individualmente para obtener el efecto deseado.
+
+2.2. Documento CSS
+
+El estilo del documento HTML, construido en el documento CSS, se muestra fragmento a fragmento en este apartado.
+
+div.left {
+  width: 18%;
+  font: .9em/1.2 Arial, Helvetica, sans-serif;
+  float: left;
+  background-color: rgb(207,232,220);
+  margin: 1%;
+}
+
+Este fragmento define la columna izquierda del blog. El ancho y el margen quedan fijados como un porcentaje del ancho total de la ventana, se definen la fuente y el color del fondo de esta columna y se dispone la columna para que quede "flotando" a la izquierda. De esta forma, la columna queda limitada a un lado de la pantalla y se adapta a posibles problemas de portabilidad por diferentes tamaños de monitor o de ventana.
+
+div.center {
+  display: block;
+  width: 56%;
+  float: left;
+  background-color: rgb(232,220,207);
+  padding: 1%;
+  margin: 1%;
+}
+
+Este fragmento define la columna central del blog. El ancho, el relleno y el margen quedan definidos en función del ancho total de la ventana (el relleno permite mantener una distancia entre el texto y el filo de la columna), define el fondo de la columna y dispone que la columna quede "flotando" también. Al igual que para la columna anterior, el ajuste de ancho en función del tamaño de la pantalla facilita la portabilidad a otros monitores y ventanas.
+
+div.right {
+  width: 18%;
+  float: right;
+  font: .9em/1.2 Arial, Helvetica, sans-serif;
+  background-color: rgb(220,207,232);
+  margin: 1%;
+}
+
+Este fragmento define la columna derecha del blog. Es prácticamente idéntica a la columna izquierda, con la diferencia de que ha sido designada para que "flote" a la derecha.
+
+footer {
+  clear: left;
+}
+
+Con este fragmento, se asegura que el footer permanezca ajeno al texto central. De esta manera, se fijará el footer al final de la pagina en vez de estar posiblemente debajo de la tercera columna.
+
+header > h1 {
+  font-size: 40px;
+  color: red;
+  font-family: fantasy;
+}
+
+Este fragmento define las características del texto h1 que haya en el header. Esto permite destacar el título del blog de una manera más contundente que si se dejara en manos de la definición por defecto.
+
+h1, h2 {
+  text-align: center;
+}
+
+Aquí se ordena que todos los h1 y h2 estén alineados en el centro, lo cual permite hacer que destaquen.
+
+h2 {
+  font-family: sans-serif;
+}
+p, li {
+  font-family: Arial;
+}
+p.poem {
+  font-family: cursive;
+}
+
+Estos tres fragmentos definen fuentes usadas para partes del texto. Así, al formarse diferentes formas de texto, se da un resalte a determinados elementos importantes.
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+Este último fragmento define que las imágenes de la clase "center" estén dispuestas en el centro según el eje horizontal, para que destaque mejor.
+
+3. Conclusión
+
+Con esta práctica final, se destaca la importancia que tiene el uso de CSS para poder diseñar documentos HTML que tengan un estilo destacable, con el consiguiente potencial impacto a la hora de realizar visitas. Además, la modularidad del sistema y su versatilidad permiten dibujar cualquier tipo de formato en la página y en su texto, aumentando así las posibilidades de diseño de una página web.
